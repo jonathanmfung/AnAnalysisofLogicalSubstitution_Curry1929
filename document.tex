@@ -1,0 +1,165 @@
+\documentclass[9pt]{article}
+\usepackage[paperheight=9.38in, paperwidth=6.33in, textwidth=4.75in]{geometry}
+
+\usepackage{titlesec}
+\usepackage[symbol, perpage]{footmisc}
+\usepackage[inline]{enumitem}
+\usepackage{todonotes}
+\newcommand{\td}[2][] {\todo[tickmarkheight=3pt, inline, size=\tiny, #1]{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% https://tex.stackexchange.com/a/129985
+\newcommand{\fakepart}[1]{%
+  \par\refstepcounter{part}% Increase part counter
+  \partmark{#1}% Add part mark (header)
+  \addcontentsline{toc}{part}{\protect\numberline{\thepart.}#1}% Add section to ToC
+  \begin{center}
+    \large\bfseries \thepart.
+  \end{center}
+}
+
+\title{An Analysis of Logical Substitution}% Only for metadata
+\author{Haskell Brooks Curry}% Only for metadata
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}%
+
+\listoftodos
+\begin{center}
+\large\textbf{An Analysis of Logical Substitution.} \\
+\normalsize By H. B. Curry.
+\end{center}
+
+\renewcommand{\contentsname}{\hfill\normalfont\normalsize\textit{Contents}.\footnote{The three parts of this paper are to a certain extent independent of one another. However, certain definitions needed in Part III are given in the last six paragraphs of Part II.} \hfill}
+\tableofcontents
+\td{header (even left, same title)}
+\td{shrink toc formatting}
+\td{slightly more line height (<5\%)}
+\td{slightly condensed font (<5\%)}
+
+
+\fakepart{Preliminary Discussion of the Nature of Mathematical Logic.}\td{section title size}
+\td{footnote mark size}
+\td{indent} \indent Mathematical Logic has been defined as an application of the formal
+methods of mathematics to the domain of Logic.\footnote{Hilbert, D., and Ackermann, W., Grundziige der theoretischen Logik, 1928, p. 1}\td{proper citations in footnotes} Logic, on the other hand,
+is the analysis and criticism of thought.\footnote{Johnson, W. E., Logic, Part I, Cambridge (1921), p. xiii} In accordance with these defini-
+tions, the essential purpose of mathematical logic is the construction of an
+abstract (or strictly formalized) theory,such that when its fundamental
+notions are properly interpreted, there ensues an analysis of those universal
+principles in accordance with which valid thinking goes on. The term
+analysis here means that a certain rather complicated body of knowledge is
+exhibited as deriveable from a much simpler body assumed at the beginning.
+Evidently the simpler this initial knowledge, and the more explicitly and
+carefully it is set forth, the more profound and satisfactory is the analysis
+concerned.
+\td{footnote rule size}
+
+In the present paper I propose to take some preliminary steps toward a
+theory of logic in which the assumed initial knowledge is simpler than in
+any existing theory with which I am acquainted. Before this is done, however,
+it is necessary to consider somewhat in detail what is meant by the phrase
+``abstract theory,'' and what is the significance of such a theory for the
+analysis of thought. The object of this discussion is to see just how the
+assumed knowledge enters into the theory; for this purpose we shall need to
+be explicit, even at the risk of repeating what has already been better said
+by others.
+
+Certain ideas concerning the nature of an abstract theory can be disposed
+of at once. In the first place the naive notion that such a theory consists of
+a set of primitive ideas and propositions together with their consequences
+by the laws of pure logic, must be dismissed on the ground of its circularity.
+Again it is said that an abstract theory is one from which all meaning has
+been abstracted. This requires that the sense of the term meaning be ex-
+plained. If we take the term meaning, as applied to objects, to signify the
+totality of properties (of those objects) which are directly apprehensible to
+our intuition, then every object presented to the mind has meaning, and a
+meaningless theory is a contradiction in terms. Even a symbol cannot be
+meaningless in this sense; for either it denotes some object, or else it is
+itself the object, and so has meaning. If we use the word meaning in some
+other sense, then it loses its significance as related to the assumed initial
+knowledge of our theory. Consequently the idea of a meaningless theory
+must be subjected to further scrutiny.
+
+Let us use the word meaning,as applied to concepts, in the sense of the
+preceding paragraph. Then, relative to a given theory, we may distinguish
+two kinds of meanings, which we shall call natural and conventional meanings
+respectively. Natural meanings are those which are comprehensible a priori
+in terms of our previous knowledge; conventional meanings those based on
+relations to the theory itself. Natural meanings we may further subdivide
+into essential and accidental: essential meanings are those on which the
+deduction of the theory depends; accidental meanings those which are non-
+essential. The distinction between these three kinds of meaning is important
+in what follows.
+
+The distinction between natural and conventional meanings has a
+counterpart in that between statements of fact and statements of convention.
+By a statement of fact I mean something of which truth or falsehood can
+significantly be predicated; by a statement of convention a declaration of
+intention, definition, or the like. The former corresponds to an act of judg-
+ment,the latter to one of volition. Common sense and grammar have long
+recognized both of these types; yet logicians seem to belittle the latter in that they define the proposition so as to exclude it.\footnote{See Johnson, W. E., 1. c., p. 1. Johnson's definition of the proposition is what I have given as the definition of a statement of fact.} Both these kinds of state-
+ment, however, are equally intelligible to a rational mind; in this sense it is
+false to say that one of them is less significant than the other. As examples
+of statements of convention we have of course the definitions of technical
+terms; but not all statements of convention are verbal---for instance the rules
+of chess, which, by a sufficient amount of circumlocution, may be stated
+without defining any new terms whatever. The postulates of any branch of
+mathematics are of this character.
+
+Let us now return to the abstract theory. I suggest that such a theory
+is characterized by the following: \begin{enumerate*}[label=\arabic*)] \item the explicit indication of all essential
+meanings; \item the absence, or at least omission from consideration, of
+accidental meanings; \item the circumstance that the statements with which
+the theory begins are conventional, and are, furthermore, sufficiently detailed
+so that all the acts necessary to the deduction are specified.
+\end{enumerate*}
+
+To be yet more precise,an abstract theory begins with a set of primitive
+notions, which, taken collectively, we shall call the \textit{primitive frame}, as follows:
+
+\td{probably could be enumerations}
+\td{Section in small caps}
+\section[Non-Formal Primitive Ideas.]{Non-Formal Primitive Ideas.\footnote{The term idea is used here to denote an object, not a process of thought.}}
+A set of ideas to each of which a certain amount of essential meaning is
+attached, although they need not coincide with any ideas previously enter-
+tained.\footnote{\textit{I. e.}, their meaning may be partly conventional} For example:
+
+\td{proper counting in named items}
+\begin{enumerate}[label=\arabic*., wide]
+\item[\textit{1. Entities.}] In order for an object to be considered in the theory at
+all, it must have some property; this fact we may express by saying it is
+an entity of one sort or another. These properties must then be among the
+primitive ideas of the theory; and they must have essential meaning in
+that they are predicates. In the simplified theory only one such notion is
+necessary; but in the more complicated ones there are several; e. g. in the
+Principia Mathematica there are individual, proposition, function, etc., the
+latter two of various orders and types.
+
+\item[\textit{2. Modes of Combination.}] I.e. processes by means of which entities may
+be combined to get new entities.These have essential meaning in that they
+are combinations. It must be specified by rules that the results of combina-
+tion are entities. In the simple cases only one such notion is necessary, and
+that a dyadic one; in the more complicated cases the various processes of
+substitution are of this nature.
+
+\item[\textit{3. Assertions.}] An assertion is a kind of entity, which is of special
+importance because the object of deduction is to derive new assertions. The
+idea of assertion has essential meaning only in that it is a predicate applicable
+to certain entities. Ordinarily an assertion is interpreted as a statement to
+which belief attaches, but this meaning is accidental.
+\end{enumerate}
+
+\section{Formal Primitive Ideas.}
+Ideas which have no essential meanings (except that they are concepts).
+They must of course be entities and their relations to other parts of the
+primitive frame will give them conventional meanings.
+
+\section{Postulates.}
+\section{Rules.}
+
+\fakepart{Logical Substitution; its Relation to a Combinatory Problem.}
+\[\phi(1, 2), \phi(2, 1), \phi(1, 1).\]
+\fakepart{Solution of the Combinatory Problem.}
+
+\end{document}
