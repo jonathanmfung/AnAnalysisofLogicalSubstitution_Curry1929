@@ -15,6 +15,7 @@ let
       todonotes
       titlesec
       enumitem
+      amsmath
       # etoolbox
       # fmtcount
       # xkeyval

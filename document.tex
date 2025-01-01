@@ -4,6 +4,9 @@
 \usepackage{titlesec}
 \usepackage[symbol, perpage]{footmisc}
 \usepackage[inline]{enumitem}
+\usepackage[leqno]{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
 \usepackage{todonotes}
 \newcommand{\td}[2][] {\todo[tickmarkheight=3pt, inline, size=\tiny, #1]{#2}}
 
@@ -18,6 +21,22 @@
     \large\bfseries \thepart.
   \end{center}
 }
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+
+\renewcommand{\thesection}{\Roman{section}.}
+\titleformat*{\section}{\normalsize\scshape}
+
+% description lists
+\newcommand\litem[1]{\item{\textit{#1}.}}
+
+\newcommand\longeq{=\joinrel=}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+% TODO: maybe remove QED symbol \renewcommand\qedsymbol{QED}
+% TODO: \newtheoremstyle
 
 \title{An Analysis of Logical Substitution}% Only for metadata
 \author{Haskell Brooks Curry}% Only for metadata
@@ -33,6 +52,7 @@
 
 \renewcommand{\contentsname}{\hfill\normalfont\normalsize\textit{Contents}.\footnote{The three parts of this paper are to a certain extent independent of one another. However, certain definitions needed in Part III are given in the last six paragraphs of Part II.} \hfill}
 \tableofcontents
+\td{toc - add space after section numerals}
 \td{header (even left, same title)}
 \td{shrink toc formatting}
 \td{slightly more line height (<5\%)}
@@ -81,7 +101,7 @@ other sense, then it loses its significance as related to the assumed initial
 knowledge of our theory. Consequently the idea of a meaningless theory
 must be subjected to further scrutiny.
 
-Let us use the word meaning,as applied to concepts, in the sense of the
+Let us use the word meaning, as applied to concepts, in the sense of the
 preceding paragraph. Then, relative to a given theory, we may distinguish
 two kinds of meanings, which we shall call natural and conventional meanings
 respectively. Natural meanings are those which are comprehensible a priori
@@ -118,16 +138,14 @@ so that all the acts necessary to the deduction are specified.
 To be yet more precise,an abstract theory begins with a set of primitive
 notions, which, taken collectively, we shall call the \textit{primitive frame}, as follows:
 
-\td{probably could be enumerations}
-\td{Section in small caps}
 \section[Non-Formal Primitive Ideas.]{Non-Formal Primitive Ideas.\footnote{The term idea is used here to denote an object, not a process of thought.}}
 A set of ideas to each of which a certain amount of essential meaning is
 attached, although they need not coincide with any ideas previously enter-
-tained.\footnote{\textit{I. e.}, their meaning may be partly conventional} For example:
+tained.\footnote{\textit{I. e.}, their meaning may be partly conventional.} For example:
 
 \td{proper counting in named items}
-\begin{enumerate}[label=\arabic*., wide]
-\item[\textit{1. Entities.}] In order for an object to be considered in the theory at
+\begin{enumerate}[label=\arabic*.,font=\itshape,wide]
+\litem{Entities} In order for an object to be considered in the theory at
 all, it must have some property; this fact we may express by saying it is
 an entity of one sort or another. These properties must then be among the
 primitive ideas of the theory; and they must have essential meaning in
@@ -136,14 +154,14 @@ necessary; but in the more complicated ones there are several; e. g. in the
 Principia Mathematica there are individual, proposition, function, etc., the
 latter two of various orders and types.
 
-\item[\textit{2. Modes of Combination.}] I.e. processes by means of which entities may
+\litem{Modes of Combination} I.e. processes by means of which entities may
 be combined to get new entities.These have essential meaning in that they
 are combinations. It must be specified by rules that the results of combina-
 tion are entities. In the simple cases only one such notion is necessary, and
 that a dyadic one; in the more complicated cases the various processes of
 substitution are of this nature.
 
-\item[\textit{3. Assertions.}] An assertion is a kind of entity, which is of special
+\litem{Assertions} An assertion is a kind of entity, which is of special
 importance because the object of deduction is to derive new assertions. The
 idea of assertion has essential meaning only in that it is a predicate applicable
 to certain entities. Ordinarily an assertion is interpreted as a statement to
@@ -256,7 +274,277 @@ more profound understanding of its nature. In this paper we shall adopt
 this metatheoretic point of view.
 
 \fakepart{Logical Substitution; its Relation to a Combinatory Problem.}
+
+The process of substitution referred to above is the insertion of a constant
+entity for one or more of the variables in a propositional function. The com-
+plexity of this process is manifest. For not only is a function of \(n\) variables
+a distinct concept for every value of \(n\), but the constant may be inserted in
+any one of the \(n\) places, and each such insertion is a distinct act; further-
+more, in connection with the universal and existential prefixes,we have a
+process which virtually amounts to the simultaneous substitution of an entity
+in two or more distinct places, as a procedure distinct from any of the fore-
+going. The process of substitution is therefore compound in that it is not
+one maneuver, but many. Moreover, when these acts of substitution are per-
+formed in succession, there are many equivalences between the different possi-
+bilities. To take the simplest example: suppose in a given function \(\phi(x, y)\)
+we substitute \(a\) for \(x\), and in the result, which is \(\phi(a, y)\), we substitute \(b\) for \(y\),
+ we have the proposition \(\phi(a, b)\); on the other hand, if we first substitute \(b\)
+for \(y\) and then \(a\) for \(x\), we obtain the very same proposition. Yet these two
+processes are in no sense identical. The substitution process is therefore not
+only compound but complex, in the sense that it has structure. Thus there
+is a considerable amount of information presupposed by the process; and
+the rules involving it cannot have the maximum possible simplicity.
+
+A notion closely related to substitution is that of transformation of func-
+tions. Suppose we regard a function as having inherent in its definition a
+certain order of its variables. Then permuting these variables in any way,
+or making two or more of them alike, will produce new functions related to
+the old; let us call them transforms of the original function, and the opera-
+tions by which they are produced transformations. If we number the varia-
+bles consecutively \(1, 2, 3, \cdots,\) then the transforms for a function of two
+variables will be---
 \[\phi(1, 2), \phi(2, 1), \phi(1, 1).\]
+
+For three variables there will be 13 transforms, for four variables 75, for five
+variables 541, etc. It is clear that the process of substituting a series of con-
+stants in an arbitrary manner (such that the total number of entities counting
+repetitions is \(n\)) into the original function is equivalent to the substitution of
+the same entities in a prescribed manner (viz., the first entity into the place
+of the first variable, the second into that of the second, etc.) into one of the
+transforms. The study of substitution is thus to a certain degree equivalent
+to the study of these transformations.
+
+An important step toward the analysis of this situation was made by
+M. Schönfinkel.\footnote{``Ueber die Bausteine der mathematischen Logik,'' Mathematische Annalen, Vol. 92 (1924), pp. 305-316.} Starting, apparently, from the fact that every logical for-
+mula is a combination of constants---the variables being only apparent---he
+shows that neither the notions of propositional function (of various orders)
+nor that of substitution need be assumed as primitive; his formulation of
+logic is such that variables, real or apparent, do not appear explicitly. His primitive frame is essentially as follows:\footnote{In this presentation I have changed Schönfinkel's formulation in some matters of detail.}
+
+\section{Non-Formal Primitive Ideas.}
+\td{remove period in litem?}
+\begin{enumerate}[label=\arabic*.,font=\itshape,wide]
+\litem{Entity}---not mentioned by Schönfinkel, but to be understood
+essentially as a single notion of the sort mentioned in the general description
+of an abstract theory above.
+
+\litem{Application}---a mode of combination, the only one in the theory.
+Two entities \(x\) and \(y\) combine to give a third entity called the application of
+\(x\) to \(y\) and denoted by \((xy)\). The \textit{interpretation} of this is as follows: if \(x\) is a function,
+then \((xy)\) is the result of substituting \(y\) for the first variable in \(x\);
+thus if \(f\) denote a function of one variable, \((fx)\) denotes what is ordinarily
+written \(f(x)\), if \(f\) is a function of two variables, \(((fx) y)\) denotes what is
+ordinarily written \(f(x, y)\), etc. Nothing is said concerning the interpretation
+of \((xy)\) when \(x\) is not a function; if the reader is disturbed over this lack,
+he may invent one arbitrarily, \textit{e. g.} \((xy)\) may then be equal to \(x\).
+
+\litem{Assertion} To be understood as in the general description of an
+abstract theory. Not denoted by any particular symbol; but when a symbol
+of the form \((((\longeq)x)y)\) \((\text{or } x \longeq y)\) where \(x\) and \(y\) may be quite complicated,
+stands out by itself like an equation in algebra, then the proposition that the
+corresponding entity is an assertion is to be understood.
+\end{enumerate}
+
+\section{Formal Primitive Ideas.}
+Three, denoted by \((\longeq)\), \(S\) and \(K\). In the interpretation \((\longeq)\) is to cor-
+respond with identity; \(S\) and \(K\) are operations in the sense defined by the
+rules.
+
+\textit{Symbolic Conventions.}\td{don't indent}
+\td{more spacing in math/parenthesis}
+\begin{enumerate}[label=\arabic*.]
+\item If \(x\) and \(y\) are any entities whatever, then instead of \((((\longeq)x)y)\)
+we may write \((x\longeq y)\).
+\item If \(x_1, x_2, \cdots, x_n\) are any entities, then instead of
+\[((\cdots (((x_1 x_2)x_3)x_4)\cdots)x_n) \]
+we may write \((x_1 x_2 x_3 \cdots, x_n)\).
+\item The outside parentheses may be left off in the case of a symbol stand-
+ing by itself or on either side of the sign \(\longeq\).
+\end{enumerate}
+
+\section{Postulates.}
+None.
+\section{Rules.}
+
+\begin{enumerate}[label=\arabic*., start=0]
+\item If \(x\) and \(y\) are entities, then \((xy)\) shall be an entity.
+\item \((\longeq)\) shall have the properties of identity. These properties may be
+specified by a few simple rules; but in this treatment we shall not go into
+that detail. We shall treat \((\longeq)\) as if it were precisely the intuitive relation
+of equality.
+\item If \(x\) and \(y\) are any entities, then
+  \[Kxy \longeq x\]
+\item If \(x,y,z\) are entities, then
+  \[Sxyz \longeq xz(yz)\]
+\item If \(X\) and \(Y\) are combinations of \(S\) and \(K\), and if there exists an
+  integer \(n\) such that by application of the preceding rules we can formally
+  reduce the expressions \(Xx_1 x_2 \cdots x_n\) and \(Yx_1 x_2 \cdots x_n\) to combinations of
+  \(x_1 x_2 \cdots x_n\) which have the same structure, then \(X \longeq Y\).
+\end{enumerate}
+
+If the above primitive frame were a part of a general theory of logic, the
+term entity would include not only the various combinations of \(S\) and \(K\), but
+all the notions of logic as well. In the sequel we shall accordingly speak of
+the application of combinations \(S\) and \(K\) to various logical notions, and of the
+resulting notions to each other, just as if these notions had been adjoined to
+the above frame.
+
+The \textit{raison d'être} of the theory based on this frame is the following fact:
+Let \(x_1, x_2,\cdots, x_n\) be any \(n\) entities, and \(X\) any combination of them con-
+structed by means of application. Then there exists a unique \(Y\), which is a
+combination of \(S\) and \(K\) and independent of \(x_1, x_2,\cdots, x_n\) such that
+\[X \longeq Y x_1 x_2 \cdots x_n.\]
+
+When we recall the interpretation to be given to application we have the fol-
+lowing result: given any logical formula built up from functions \(f_1, f_2,\cdots, f_m\)
+and variables \(x_1, x_2,\cdots, x_n\) by substitution and rearrangement in any man-
+ner; then the formula is expressible in the form
+\[Fx_1x_2\cdots x_m\]
+where
+\[F\longeq Yf_1f_2\cdots f_m.\]
+\td{don't indent}
+Now as already remarked, in the formulas expressing propositions of logic,
+the variables are only apparent; which means that they are only a device by
+means of which rather complicated relations among the logical constants
+may be expressed; these relations, as the preceding argument shows, may also
+be expressed by means of the operators Y, so that when the Schönfinkel theory
+is used it is not necessary that variables should appear at all.
+
+The theory of transformation of functions is included in the above as a
+special case; viz., when there is a single function \(f\) and \(F\) is a transform.
+
+The theory is, however, open to objection from our point of view because
+of the complexity of Rule 4\td{link}. This rule is not mentioned by Schönfinkel; but
+it is necessary in order that the \(Y\) mentioned be unique. In fact, the combina-
+tions \(SK\) and \(K(SKK)\) determine the same \(X\); yet it is evidently not possi-
+ble to establish their identity by means of the first four rules.
+
+This situation suggests a problem; viz., to find a set of postulates which,
+when adjoined to the Schönfinkel frame, enable us to dispense with Rule 4.
+In what follows we shall obtain the solution of a special case under this prob-
+lem; specifically, we shall find a set of postulates such that, within a certain
+subclass of combinations of \(S\) and \(K\), all the \(Y\)'s which correspond
+to the same \(X\) may be proved equal by means of these postulates and Rules 0-3. The sub-
+class is one which has particular reference to logical substitution.
+
+To begin with, we make the following definitions (the first three were made by Schönfinkel):\footnote{We use \(B\) and \(C\) respectively in place of Schönfinkel's \(Z\) and \(T\). Nothing cor- responding ot \(W\) or \(C_2, C_3, \cdots\) is defined by him.}
+
+\begin{align*}
+  I &\longeq SKK \\
+  B &\longeq S(KS)K \\
+  C_1 &\longeq S(BBS)(KK) \\
+  C_2 &\longeq BC_1; C_3 \longeq BC_2; \cdots \text{etc.} \\
+  W &\longeq SS(SK)
+\end{align*}
+
+then the reader may verify that whenever \(x_0, x_1, x_2 \cdots\) are entities
+\begin{align*}
+  Ix_0 &\longeq x_0 \\
+  Bx_0x_1x_2 &\longeq x_0(x_1x_2) \\
+  C_1x_0x_1x_2 &\longeq x_0x_2x_1 \\
+  C_2x_0x_1x_2x_3 &\longeq x_0x_1x_3x_2 \\
+  Wx_0x_1 &\longeq x_0x_1x_1
+\end{align*}  \td{hrule of dots}
+
+Also we define multiplication, thus
+
+\[X\cdot Y \longeq BXY\]
+
+This multiplication is associative, and furthermore with respect to it, \(I\) is an
+identical element These properties follow from Rule 4; they may also be
+proved from the postulates:
+\begin{align*}
+  &C_1(BB(BBB))B \longeq BBBBB \\
+  &BI \longeq I \\
+  &C_1BI \longeq I. \\
+\end{align*}
+
+The subclass in question shall now consist of all the combinations formed by multiplication from the \(C\)'s, \(W\), and \(I\).
+
+Before discussing the significance of this subclass, we turn aside to make
+some conventions in regard to transformations. Let us redefine a transforma-
+tion as an operation converting the sequence \(1, 2, 3, \cdots\) into the sequence
+\(a_1, a_2, a_3, \cdots\) The latter sequence will, in the cases we consider, have the
+property that there exists and index \(m\) such that:
+\begin{enumerate*}[label=\arabic*)]
+\item for \(i \leqq m\) the \(a_i\) are a
+  permutation, with repetitions allowed, but not omissions, of the integers from
+  \(1\) to \(m - p\), \(p \geqq 0\)\td{long minus sign}, inclusive, \item for \(i > m, a_i \longeq i - p\). \end{enumerate*} Let \(m\) be the least
+integer having this property; then we shall call \(m\) the order of the trans-
+formation. We shall denote a transformation by writing in brackets the
+sequence into which it transforms the sequence \(1, 2, 3, \cdots\); furthermore,
+there is no ambiguity if we indicate only the first \(n\) terms of the former
+sequence, if \(m \leqq n\).
+
+We shall further agree that a transformation of order \(m\) may operate on
+a function of any number of variables \(\geqq m\); and that the effect of the trans-
+formation on the function \(\phi(1, 2, \cdots, n)\), where \(n \geqq m\), shall be the trans-
+form \(\phi(a_1, a_2, \cdots a_n)\). We shall regard as undefined the effect of a trans-
+formation on a function of multiplicity less than the order of the transforma-
+tion. Then there is one and only one transformation which carries a given
+function into a given transform.
+
+Multiplication of transformations we now define as follows:\td{indent equation numbers}
+\begin{equation}
+  \label{eq:multiplication_transformations}
+[a_1, a_2, a_3 \cdots] \cdot [b_1, b_2, b_3 \cdots] \longeq [a_{b_1}, a_{b_2}, a_{b_3} \cdots]
+\end{equation}
+
+\td{no indent}(The product transformation has a finite order, provided that the factors do.)
+
+Suppose, now, that we have a combination, \(X\), of \(S\) and \(K\), having the
+property that there exists a transformation\td{check alpha boldness} \(\alpha \longeq [a_1, a_2 \cdots a_m]\) such that for
+arbitrary \(x_0, x_1, x_2, \cdots x_{m-p}\)
+\[Xx_0 x_1 x_2 \cdots x_{m-p} \longeq x_0 x_{a_1}x_{a_2} \cdots x_{a_m}\]
+where \(m\) and \(p\) are defined as above. Then we shall say that \(X\) corresponds to
+\(alpha\). It follows from Rules 0-3 that if \(X\) and \(Y\) are entities which correspond to
+transformations \(\alpha\) and \(\beta\), respectively, then \(X \cdot Y\) corresponds to \(\alpha\beta\).
+
+I now assert that every entity of our subclass corresponds to a transforma-
+tion; and conversely that every \(X\) corresponding to a transformation, is an
+entity of the subclass. For since the generating entities, the \(C\)'s, \(W\), and \(I\),
+correspond to transformations, the first part of the statement follows from the
+closing sentence of the last paragraph. The last part follows similarly from
+the fact that every transformation can be obtained by multiplication from
+permutations of adjacent integers and the transformation \([1, 1.]\) Of course
+the one-to-oneness of the correspondence depends essentially on Rule 4.
+
+The problem now is to find a set of postulates for the \(C\)'s and \(W\), from
+which we may conclude, without the use of Rule 4, that the correspondence
+between our subclass and the set of all transformations is a simple isomorph-
+ism. To this we now turn.
+
 \fakepart{Solution of the Combinatory Problem.}
+
+\td{theorem: italicize + newline + no number}
+\td{is textit redundant in theorems?}
+\td{is equality sign for numbers same as terms?}
+\begin{theorem}
+  \begin{enumerate}[label=\arabic*)]
+\item \textit{Let \(\mathfrak{A}\) be a system of operators, in which there exists an associative
+    multiplication and an identical element, \(I\).}
+\item \textit{Let this system be generated by operators \(W, C_1, C_2, \cdots\)} Subject to the postulates
+  \td{more width in postulates}
+  \begin{alignat*}{3}
+    \text{I. }& C_i \cdot C_i \longeq I &&i \longeq 1, 2, 3, \cdots \\
+    \text{II. }& C_i \cdot C_{i+1} \cdot C_i \longeq C_{i+1} \cdot C_i \cdot C_{i+1} &&i \longeq 1, 2, 3, \cdots \\
+    \text{III. }& C_i \cdot C_j \longeq C_j \cdot C_i &&i \longeq 1, 2, 3, \cdots && j > i + 1 \\
+    \text{IV. }& C_i \cdot W \longeq W \cdot C_{i+1} &&i \longeq 2, 3, 4, \cdots \\
+    \text{V. }& W \cdot C_1 \longeq W \\
+    \text{VI. }& W \cdot W \cdot C_2 \longeq W \cdot W\footnote{VI and VII are equivalent repectively to (6) and (7) (see below). The latter may if desired replace VI and VII.} \\
+    \text{VII. }& W \cdot D_j \cdot W \longeq D_{j-1} \cdot W \cdot D_3 \cdot W \cdot C_2 \cdot C_3 \cdot C_1 \cdot C_2 \footnote{TODO: same} &&j \longeq 3, 4, 5 \cdots
+  \end{alignat*}
+  where
+  \begin{align*}
+    &D_1 \longeq I \\
+    &D_{j+1} \longeq C_j \cdot D_j \longeq C_j \cdot C_{j-1} \cdot C_{j-2} \cdots \cdots C_1
+  \end{align*}
+  \td{multiple (5) cdots}
+
+  \item \textit{Let a correspondence be set up between the system \(\mathfrak{A}\) and the system of transformations of finite order as follows:}
+  \end{enumerate}
+\end{theorem}
+
+
 
 \end{document}
