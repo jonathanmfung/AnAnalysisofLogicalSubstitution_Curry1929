@@ -810,11 +810,179 @@ For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), t
 
   Then for the explicit determination of the \(a_x\) we have
   \begin{alignat*}{5}
-    &&\text{If\quad}  &0&< x < k_1 && \text{\quad then \quad} a_x&&\longeq x \\
-             &&&k &&\leqq x \leqq k_1 + r_1 && a_x &&\longeq k_1 \\
-             &&&k_1 + r_1 &&< x < k_2 + r_1 &&\text{\enskip etc.} a_x&&\longeq x-r_1
+    \text{If\quad} && 0 &< x < k_1           && \text{\quad then \quad} && a_x&&\longeq x \\
+             && k_1 &\leqq x \leqq k_1 + r_1 &&                         &&a_x &&\longeq k_1 \\
+           && k_1 + r_1 &< x < k_2 + r_1     &&                         &&a_x&&\longeq x-r_1 \\
+           &&           &                    &&\text{\enskip etc.}      &&   &&
   \end{alignat*}
+  In general, if we define
+  \begin{align*}
+    s_i &\longeq r_1 + r_2 + \cdots + r_1 \\
+    r_0 &\longeq 0, s_0 \longeq 0, k_0 \longeq 0
+  \end{align*}
+  then, for \(i \longeq 1, 2, \cdots q\).
+  \td{originally aligned on first k}
+  \begin{alignat*}{5}
+    \text{If\quad} && k_{i-1}+s_{i-1} &< x < k_i +s_{i-1}           && \text{\quad then \quad} && a_x&&\longeq x-s_{i-1} \\
+             && k_i +s_{i-1} &\leqq x \leqq k_i + s_i &&                         &&a_x &&\longeq k_i \\
+           && k_q +s_q &< x  &&                         &&a_x&&\longeq x-s_q.
+  \end{alignat*}
+  These formulas follow directly from \eqref{eq:multiplication_transformations} and \eqref{eq:finite_transformations}; their proofs are left to
+  the reader.
+
+  The transformation has thus the following character: \begin{enumerate*}[label=\arabic*)] \item the integers in the symbol \([a_1, a_2, a_3 \cdots]\) are arranged in their natural order with certain
+    repetitions, \item the only integers which appear more than once are \(k_1, k_2 \cdots k_q\),
+    and these appear respectively \(r_1 +1, r_2 +1, \cdots r_q +1\) times.
+  \end{enumerate*}
+
+  Now if  \(\beta \longeq [b_1, b_2 \cdots]\) corresponds to \(B\), then the transformation
+  corresponding to \(\Delta_q \cdot B\) is \(\alpha \cdot \beta \longeq [a_{b_1}, a_{b_2}, \cdots]\). By the restrictions on \(B\)
+  the sequence \([a_{b_1}, a_{b_2}, \cdots]\) is merely a rearrangement of the sequence
+  \([a_1, a_2 \cdots]\). Hence the second of the above properties applies just as much
+  to \(\alpha \cdot \beta\) as to \(\alpha\). But then the constants \(q, k_1 \cdots k_q, r_1 \cdots r_q,\) are uniquely
+  determined by \(\alpha \cdot \beta\), \mbox{q. e. d.}
 \end{proof}
 
+\begin{lemma}
+  To each transformation of finite order there corresponds at
+  least one expression of form \eqref{eq:11}.
+\end{lemma}
+\begin{proof}
+  Let the given transformation be \(\gamma \longeq [c_1, c_2 \cdots]\).
+
+  Let \(\Delta_q\) be determined from \(\gamma\) as indicated in the preceding lemma, and
+  suppose \(\Delta_q \sim [a_1, a_2 \cdots] \longeq \alpha\).
+
+  Then we can construct a permutation \(\beta \longeq [b_1, b_2 \cdots]\) such that
+  \(\alpha \cdot \beta \longeq \gamma\), as follows. If \(c_i\) is distinct from any of the \(k\)'s there is one and
+  only one \(j\) such that \(a_j \longeq c_i\); in that case we must let \(b_i \longeq j\). On the other
+  hand let the \(C\)'s which are equal to \(k_j\) be \(c_{i_1}, c_{i_2} \cdots c_{i_p}\) (where \(p \longeq r_j + 1\));
+  then set \(b_{i_1} \longeq k_j + s_{j-1}, b_{i_2} \longeq b_{i_1} +1, b_{i_3} \longeq b_{i_2} +1,\) etc. For definiteness
+  we may suppose that \(i_1 < i_2 < \cdots < i_p\). Then \(\alpha \cdot \beta \longeq \gamma\); for the i'th in-
+  teger in the symbol for \(\alpha \cdot \beta\) is \(a_{b_i}\), and \(b_i\) has been so chosen that in all
+  cases \(a_{b_i} \longeq c_i\).
+
+  To the \(\beta\) so constructed there corresponds a unique \(B\) in \(\mathfrak{A}\), by Moore's
+  result. For this \(B\), \(\Delta_q \cdot B \sim \gamma, q.e.d.\)
 \end{proof}
+
+\begin{lemma}
+  The operator in \(\mathfrak{A}\) corresponding to a given transformation
+  is unique.
+\end{lemma}
+\begin{proof}
+  Let \(A_1\) and \(A_2\) be two operators in \(\mathfrak{A}\) which correspond to a given trans-
+  \td{label/ref lemmas}
+  formation \(\gamma\). By Lemmas 2 and 3 there is a uniquely determined \(\Delta_q\)
+  such that
+  \[A_1 \longeq \Delta_q \cdot B_1, \qquad A_2 \longeq \Delta_q \cdot B_2\]
+
+  If \(B_1 \sim \beta_1, B_2 \sim \beta_2, \beta_1\) and \(\beta_2\) must be subject to all the restrictions
+  to which \(\beta\) was subject in Lemma 4, except that it is not necessary to suppose
+  \(i_1 < i_2 < \cdots < i_p\). The only way in which \(\beta_1\) and \(\beta_2\) can differ is in the
+  arrangement of the \(b_{i_1}, b_{i_2} \cdots\) corresponding to each of the \(k_j\). Hence
+  \[\beta_2 \longeq \beta_3 \cdot \beta_1\]
+  where \(\beta_3\) is a product of permutations, each of which permutes among them-
+  selves the integers composing one of the sets \(k_j + s_{j-1}, k_j + s_{j-1} + 1, \cdots k_j + s_j\).
+
+  Let us now agree to denote by \(E_i^j, i<j\) a combinations of \(C_i, C_{i+1} \cdots C_{j-1}\)
+  (corresponding to a permeation of \(i, i+1, \cdots j\)). Then, in view of the
+  isomorphism already established by Moore, we have the following result;
+  there exists a \(B_3\) such that
+  \begin{align*}
+    B_2 &\longeq B_3 \cdot B_1 \\
+    B_3 &\longeq E_{k_1}^{k_1 + r_1} \cdot E_{k_2 + s_1}^{k_2 + s_2} \cdot E_{k_3 + s_2}^{k_3 + s_3} \cdots E_{k_q + s_{q-1}}^{k_q + s_q}
+  \end{align*}
+  \indent To prove the lemma it is sufficient to show that \(\Delta_q \cdot B_3 \longeq \Delta_q\). This, in
+  turn, follows from the above form for \(B_3\), if we demonstrate that
+  \begin{equation}
+    \label{eq:12}
+    \Delta_h \cdot E_{k_h + s_{h-1}}^{k_h + s_h} \longeq \Delta_k \qquad (h\longeq 1, 2, \cdots, q).
+  \end{equation}
+
+  \noindent We turn to this last question forthwith.
+
+  In the first place, if
+  \[ i > k+1, W_k \cdot E_i^j \longeq E_{i-1}^{j-1} \cdot W_k. \]
+  This follows from \eqref{eq:10}, under Lemma 2.
+
+  Next, if \(i>k+1\)
+  \begin{equation}
+    \label{eq:13}
+    W_k^r \cdot E_i^j \longeq E_{i-r}^{j-r} \cdot W_k^r.
+  \end{equation}
+  This is derived from the preceding by induction on \(r\).
+
+  Third, if \(i < h\)
+  \begin{equation}
+    \label{eq:14}
+    \Delta_i \cdot E_{k_h + s_{h-1}}^{k_h + s_{h}} \longeq E_{k_h + s_{h-1} - s_i}^{k_h + s_h - s_i} \cdot \Delta_i.
+  \end{equation}
+  For \(i\longeq 1\), this follows from the preceding, for the conditions \(k_h + s_{h-1} > k_1 + r_1\)
+  are satisfied since, if \(h > 1\), \(k_h > k_1\), \(s_{h-1} \geqq s_1 \longeq r_1\). For \(i > 1\)
+  we prove \eqref{eq:14} by induction. Suppose it true for \(i-1\), then,
+  \begin{align*}
+    \Delta_i \cdot E_{k_h + s_h}^{k_h + s_{h-1}} &\longeq W_{k_i}^{r_i} \cdot \Delta_{i-1} \cdot E_{k_h + s_{h-1}}^{k_h + s_h} \\
+                                                 &\longeq W_{k_i}^{r_i} \cdot E_{k_h + s_{h-1} - s_{i-1}}^{k_h + s_h - s_{i-1}} \cdot \Delta_{i-1}.
+  \end{align*}
+  In order, now, to apply \eqref{eq:13}, we need to know simply that
+  \[k_h + s_{h-1} - s_{i-1} > k_i + r_i\]
+  and this is fulfilled since for \(h > i\),
+  \[s_{h-1} - s_{i-1} \longeq r_i + r_{i+1} + \cdots + r_{h-1} \geqq r_i.\]
+  Hence
+  \[W_{k_i}^{r_i} \cdot E_{k_h + s_{h-1} - s_{i-1}}^{k_h + s_h - s_{i-1}} \cdot \Delta_{i-1} \longeq E_{k_h + s_{h-1} - s_i}^{k_h + s_h - s_i} \cdot W_{k_i}^{r_i} \cdot \Delta_{i-1}\]
+  so that \eqref{eq:14} is proved.
+
+  The following is the special case of \eqref{eq:14} where \(i \longeq h-1\)
+  \[\Delta_{h-1} \cdot E_{k_h + s_{h-1}}^{k_h + s_h} \longeq E_{k_h}^{k_h + r_h} \cdot \Delta_{h-1}.\]
+
+  In order to complete the proof of \eqref{eq:12}, it remains (since \(\Delta_h \longeq W_{k_h}^{r_h} \cdot \Delta_{h-1}\))
+  simply to show
+
+  \begin{equation}
+    \label{eq:15}
+    W_{k_h}^{r_h} \cdot E_{k_h}^{k_h + r_h} \longeq W_{k_h}^{r_h}
+  \end{equation}
+  In view of the composition of \(E_{k_h}^{k_h + r_h}\), \eqref{eq:15} follows from
+  \[W_k^r \cdot C_{k+j} \longeq W_k^r \qquad \text{for } 0 \leqq j< r.\]
+  For \(j\longeq 0\), this is true by \eqref{eq:9}, under Lemma 2.
+  For \(j\longeq 1\)
+  \begin{flalign*}
+    && W_k \cdot W_k \cdot C_{k+1} &\longeq W_k \cdot W_{k+1} \cdot C_{k+1} &\text{by \eqref{eq:5}} \\
+                                &&&\longeq W_k \cdot W_{k+1}               &\text{by \eqref{eq:9}} \\
+                                &&&\longeq W_k \cdot W_k                  &\text{by \eqref{eq:5}} \\
+    &&\therefore \quad W_k^r \cdot C_{k+1} &\longeq W_k^r \qquad \qquad \text{for } r\geqq 2. &
+  \end{flalign*}
+  For \(j > 1\), let \(r \longeq s+j-1\), then \(s \geqq 2\) and
+  \begin{flalign*}
+    && W_k^r \cdot C_{k+j} &\longeq W_k^s \cdot W_k^{j-1} \cdot C_{k+j} &\\
+                        &&&\longeq W_k^s \cdot C_{k+1} \cdot W_k^{j-1} &\text{by \eqref{eq:10}} \\
+                        &&&\longeq W_k^s \cdot W_k^{j-1} &\text{by the previous case} \\
+                        &&&\longeq W_k^r. &
+  \end{flalign*}
+  These three cases together establish \eqref{eq:15}, which completes the proof of both
+  the lemma and the theorem.
+\end{proof}% lemma
+\end{proof}% theorem
+We have now achieved one of our objectives---viz. the elimination of
+Rule 4 so far as the selected subclass is concerned. For Rule 4 merely
+enables us to conclude that two entities of the subclass, whose application to
+a series \(x_0 x_1 x_2 \cdots\) yields the same transformation, are equal. These en-
+tities correspond to the same transformation in the sense of our theorem,
+and therefore by that theorem are equal. Moreover the proof of the theorem
+is such that in any particular case a proof of the equality can be constructed
+in terms of I-VII, together with the rules for identity and no more. This
+proof will in general be quite long, but it may nevertheless be found.\footnote{MISSING FOOTNOTE IN ORIGINAL PAPER}
+
+Finally we have an analysis of substitution in so far as that process is
+equivalent to transformation.
+
+There remain open two questions: \begin{enumerate*}[label=\arabic*)] \item What is the relation between the
+  transforms of a function of \(n - 1\) variables, obtained by substituting a con-
+  stant in a function of \(n\) variables, and the transforms of the original;
+  \item How can our infinite set of postulates be reduced to a finite set. \end{enumerate*} Both
+these questions can be answered by introducing the entity \(B\) defined in Part II.\td{link to part II}
+But when we do that, it is expedient to consider a more extensive subclass.
+This takes us out of the domain of simple substitution. The topic is left for
+a later paper.
 \end{document}
