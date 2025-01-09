@@ -1,4 +1,4 @@
-\documentclass[9pt]{article}
+\documentclass[9pt]{extarticle}
 \usepackage[paperheight=9.38in, paperwidth=6.33in, textwidth=4.75in]{geometry}
 
 \usepackage{titlesec}
@@ -8,19 +8,40 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{todonotes}
+\usepackage{tocloft}
 \newcommand{\td}[2][] {\todo[tickmarkheight=3pt, inline, size=\tiny, #1]{#2}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% TOC  %%%%%%%%%%%%%%%%%%%%
+%% Center TOC title
+\renewcommand{\cfttoctitlefont}{\hfill\normalfont\normalsize\textit}
+\renewcommand{\cftaftertoctitle}{\hfill}
 
+\setcounter{tocdepth}{0} % toc show only parts
+
+%% Part entry formatting
+\setlength{\cftbeforepartskip}{0pt}
+\setlength{\cftpartindent}{2em}
+
+% https://tex.stackexchange.com/a/510274
+\setlength{\cftpartnumwidth}{1.5em}
+\renewcommand{\cftpartpresnum}{\hfill}% Right-align
+\renewcommand{\cftpartaftersnum}[1]{}% Remove \hfill after number
+\renewcommand{\cftpartaftersnumb}{\hspace{1em}}% Space between number and section title
+\renewcommand{\cftpartfont}{\normalsize}
+
+%% fake because need to insert only number in body
 % https://tex.stackexchange.com/a/129985
 \newcommand{\fakepart}[1]{%
   \par\refstepcounter{part}% Increase part counter
   \partmark{#1}% Add part mark (header)
-  \addcontentsline{toc}{part}{\protect\numberline{\thepart.}#1}% Add section to ToC
+  \phantomsection
+  \addcontentsline{toc}{part}{\protect\numberline{\thepart.}#1}% Add part to ToC
   \begin{center}
     \large\bfseries \thepart.
   \end{center}
 }
+
 \makeatletter
 \@addtoreset{section}{part}
 \makeatother
@@ -28,6 +49,7 @@
 \renewcommand{\thesection}{\Roman{section}.}
 \titleformat*{\section}{\normalsize\scshape}
 
+%%%%%%%%%%%%%  MATH  %%%%%%%%%%%%%%%%%%%
 % description lists
 \newcommand\litem[1]{\item{\textit{#1}.}}
 
@@ -46,20 +68,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}%
 
-\listoftodos
 \begin{center}
 \large\textbf{An Analysis of Logical Substitution.} \\
 \normalsize By H. B. Curry.
 \end{center}
+\renewcommand{\contentsname}{Contents.\footnote{The three parts of this paper are to a certain extent independent of one another. However, certain definitions needed in Part III are given in the last six paragraphs of Part II.} \hfill}
 
-\renewcommand{\contentsname}{\hfill\normalfont\normalsize\textit{Contents}.\footnote{The three parts of this paper are to a certain extent independent of one another. However, certain definitions needed in Part III are given in the last six paragraphs of Part II.} \hfill}
 \tableofcontents
-\td{toc - add space after section numerals}
+\td{hrule before toc}
 \td{header (even left, same title)}
-\td{shrink toc formatting}
 \td{slightly more line height (<5\%)}
 \td{slightly condensed font (<5\%)}
-
 
 \fakepart{Preliminary Discussion of the Nature of Mathematical Logic.}\td{section title size}
 \td{footnote mark size}

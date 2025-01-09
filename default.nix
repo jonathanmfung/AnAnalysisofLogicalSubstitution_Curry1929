@@ -16,11 +16,8 @@ let
       titlesec
       enumitem
       amsmath
-      # etoolbox
-      # fmtcount
-      # xkeyval
-      # ragged2e
-      # fontspec
+      extsizes
+      tocloft
       ;
   };
 in
