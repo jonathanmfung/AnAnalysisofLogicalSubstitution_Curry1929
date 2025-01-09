@@ -19,6 +19,9 @@ let
       extsizes
       tocloft
       fancyhdr
+      cleveref
+      hyperref
+      etoolbox
       ;
   };
 in

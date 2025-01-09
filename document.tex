@@ -2,15 +2,21 @@
 % equivalent to textwidth=4.75in (need to explicitly define left/right to center twoside doc)
 \usepackage[paperheight=9.38in, paperwidth=6.33in, left=0.79in, right=0.79in, bottom=1.2in]{geometry}
 
+\usepackage{fancyhdr}
 \usepackage{titlesec}
+\usepackage{tocloft}
+
 \usepackage[symbol, perpage]{footmisc}
 \usepackage[inline]{enumitem}
+
+\usepackage{hyperref}
 \usepackage[leqno]{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
-\usepackage{fancyhdr}
+\usepackage{cleveref}
+
+
 \usepackage{todonotes}
-\usepackage{tocloft}
 \newcommand{\td}[2][] {\todo[tickmarkheight=3pt, inline, size=\tiny, #1]{#2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,6 +122,7 @@
 \end{abstract}
 
 \fakepart{Preliminary Discussion of the Nature of Mathematical Logic.}
+\label{part:I}
 \indent Mathematical Logic has been defined as an application of the formal
 methods of mathematics to the domain of Logic.\footnote{Hilbert, D., and Ackermann, W., Grundziige der theoretischen Logik, 1928, p. 1}\td{proper citations in footnotes} Logic, on the other hand,
 is the analysis and criticism of thought.\footnote{Johnson, W. E., Logic, Part I, Cambridge (1921), p. xiii} In accordance with these defini-
@@ -327,6 +334,7 @@ more profound understanding of its nature. In this paper we shall adopt
 this metatheoretic point of view.
 
 \fakepart{Logical Substitution; its Relation to a Combinatory Problem.}
+\label{part:II}
 
 The process of substitution referred to above is the insertion of a constant
 entity for one or more of the variables in a propositional function. The com-
@@ -565,6 +573,7 @@ between our subclass and the set of all transformations is a simple isomorph-
 ism. To this we now turn.
 
 \fakepart{Solution of the Combinatory Problem.}
+\label{part:III}
 
 \td{theorem: italicize + newline + no number}
 \td{is textit redundant in theorems?}
@@ -678,6 +687,7 @@ whence,
 The result we wish to prove now follows from a series of lemmas.
 
 \begin{lemma}
+  \label{lemma:1}
   Every product expression in \(\mathfrak{A}\) can be reduced to the form
   \begin{equation}
     \label{eq:product_reduction}
@@ -735,7 +745,8 @@ Taking all these into consideration, we can reduce the form \eqref{eq:4} to the 
 \end{proof}
 
 \begin{lemma}
-  Every expression in \(\mathfrak{A}\) can be reduced further to a form \eqref{eq:product_reduction}, in which\td{multiple dots}
+  \label{lemma:2}
+  Every expression in \(\mathfrak{A}\) can be reduced further to a form \eqref{eq:product_reduction}, in which
   \[k_q \geqq k_{q-1} \geqq \cdots \cdots \geqq k_2 \geqq k_1\]
 \end{lemma}
 
@@ -854,6 +865,7 @@ For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), t
 \end{proof}
 
 \begin{lemma}
+  \label{lemma:3}
   If two expressions of the form \eqref{eq:11} correspond to the same
   transformation, then they both have the same constants \(q, k_1, k_2, \cdots k_q,
   r_1 r_2, \cdots r_q.\)
@@ -899,6 +911,7 @@ For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), t
 \end{proof}
 
 \begin{lemma}
+  \label{lemma:4}
   To each transformation of finite order there corresponds at
   least one expression of form \eqref{eq:11}.
 \end{lemma}
@@ -922,18 +935,19 @@ For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), t
 \end{proof}
 
 \begin{lemma}
+  \label{lemma:5}
   The operator in \(\mathfrak{A}\) corresponding to a given transformation
   is unique.
 \end{lemma}
+\td{proof newline}
 \begin{proof}
   Let \(A_1\) and \(A_2\) be two operators in \(\mathfrak{A}\) which correspond to a given trans-
-  \td{label/ref lemmas}
-  formation \(\gamma\). By Lemmas 2 and 3 there is a uniquely determined \(\Delta_q\)
+  formation \(\gamma\). By \Cref{lemma:2,lemma:3} there is a uniquely determined \(\Delta_q\)
   such that
   \[A_1 \longeq \Delta_q \cdot B_1, \qquad A_2 \longeq \Delta_q \cdot B_2\]
 
   If \(B_1 \sim \beta_1, B_2 \sim \beta_2, \beta_1\) and \(\beta_2\) must be subject to all the restrictions
-  to which \(\beta\) was subject in Lemma 4, except that it is not necessary to suppose
+  to which \(\beta\) was subject in \Cref{lemma:4}, except that it is not necessary to suppose
   \(i_1 < i_2 < \cdots < i_p\). The only way in which \(\beta_1\) and \(\beta_2\) can differ is in the
   arrangement of the \(b_{i_1}, b_{i_2} \cdots\) corresponding to each of the \(k_j\). Hence
   \[\beta_2 \longeq \beta_3 \cdot \beta_1\]
@@ -959,7 +973,7 @@ For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), t
 
   In the first place, if
   \[ i > k+1, W_k \cdot E_i^j \longeq E_{i-1}^{j-1} \cdot W_k. \]
-  This follows from \eqref{eq:10}, under Lemma 2.
+  This follows from \eqref{eq:10}, under \Cref{lemma:2}.
 
   Next, if \(i>k+1\)
   \begin{equation}
@@ -1000,7 +1014,7 @@ For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), t
   \end{equation}
   In view of the composition of \(E_{k_h}^{k_h + r_h}\), \eqref{eq:15} follows from
   \[W_k^r \cdot C_{k+j} \longeq W_k^r \qquad \text{for } 0 \leqq j< r.\]
-  For \(j\longeq 0\), this is true by \eqref{eq:9}, under Lemma 2.
+  For \(j\longeq 0\), this is true by \eqref{eq:9}, under \Cref{lemma:2}.
   For \(j\longeq 1\)
   \begin{flalign*}
     && W_k \cdot W_k \cdot C_{k+1} &\longeq W_k \cdot W_{k+1} \cdot C_{k+1} &\text{by \eqref{eq:5}} \\
@@ -1036,7 +1050,7 @@ There remain open two questions: \begin{enumerate*}[label=\arabic*)] \item What 
   transforms of a function of \(n - 1\) variables, obtained by substituting a con-
   stant in a function of \(n\) variables, and the transforms of the original;
   \item How can our infinite set of postulates be reduced to a finite set. \end{enumerate*} Both
-these questions can be answered by introducing the entity \(B\) defined in Part II.\td{link to part II}
+these questions can be answered by introducing the entity \(B\) defined in \Cref{part:II}.
 But when we do that, it is expedient to consider a more extensive subclass.
 This takes us out of the domain of simple substitution. The topic is left for
 a later paper.
