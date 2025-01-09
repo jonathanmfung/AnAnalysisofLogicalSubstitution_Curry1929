@@ -71,13 +71,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}%
 
-\pagestyle{fancy}
-\renewcommand{\headrulewidth}{0em}
-\fancyhead{} % clear all header fields
-\fancyhead[C]{\textsc{Curry}: \textit{An Analysis of Logical Substitution.}}
-\fancyhead[LE, RO]{\thepage}
-\fancyfoot{} % clear all footer fields
-
 % https://tex.stackexchange.com/a/37884
 \makeatletter
 \renewcommand\footnoterule{%
@@ -93,9 +86,16 @@
 \end{center}
 
 \renewcommand{\contentsname}{Contents.\footnote{The three parts of this paper are to a certain extent independent of one another. However, certain definitions needed in Part III are given in the last six paragraphs of Part II.} \hfill}
-% \tableofcontents
+\tableofcontents
 
-\td{header (even left, same title)}
+% NOTE: fancy pagestyle must be after tableofcontents
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0em}
+\fancyhead{} % clear all header fields
+\fancyhead[C]{\textsc{Curry}: \textit{An Analysis of Logical Substitution.}}
+\fancyhead[LE, RO]{\thepage}
+\fancyfoot{} % clear all footer fields
+
 \td{slightly more line height (<5\%)}
 \td{slightly condensed font (<5\%)}
 
