@@ -488,14 +488,17 @@ To begin with, we make the following definitions (the first three were made by S
   W &\longeq SS(SK)
 \end{align*}
 then the reader may verify that whenever \(x_0, x_1, x_2 \cdots\) are entities
-\begin{align*}
+\begin{equation*}
+  \renewcommand{\arraycolsep}{0pt}% Remove separation between array columns
+  \begin{array}{rl}
   Ix_0 &\longeq x_0 \\
   Bx_0x_1x_2 &\longeq x_0(x_1x_2) \\
   C_1x_0x_1x_2 &\longeq x_0x_2x_1 \\
   C_2x_0x_1x_2x_3 &\longeq x_0x_1x_3x_2 \\
+  \hdotsfor[5]{2} \\
   Wx_0x_1 &\longeq x_0x_1x_1
-\end{align*}  \td{hrule of dots}
-
+  \end{array}
+\end{equation*}
 Also we define multiplication, thus
 \[X\cdot Y \longeq BXY\]
 This multiplication is associative, and furthermore with respect to it, \(I\) is an
