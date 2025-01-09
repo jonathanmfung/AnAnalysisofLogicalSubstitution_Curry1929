@@ -540,11 +540,10 @@ Multiplication of transformations we now define as follows:\td{indent equation n
   \label{eq:multiplication_transformations}
 [a_1, a_2, a_3 \cdots] \cdot [b_1, b_2, b_3 \cdots] \longeq [a_{b_1}, a_{b_2}, a_{b_3} \cdots]
 \end{equation}
-
-\td{no indent}(The product transformation has a finite order, provided that the factors do.)
+(The product transformation has a finite order, provided that the factors do.)
 
 Suppose, now, that we have a combination, \(X\), of \(S\) and \(K\), having the
-property that there exists a transformation\td{check alpha boldness} \(\alpha \longeq [a_1, a_2 \cdots a_m]\) such that for
+property that there exists a transformation\td{check alpha boldness/non-italic} \(\alpha \longeq [a_1, a_2 \cdots a_m]\) such that for
 arbitrary \(x_0, x_1, x_2, \cdots x_{m-p}\)
 \[Xx_0 x_1 x_2 \cdots x_{m-p} \longeq x_0 x_{a_1}x_{a_2} \cdots x_{a_m}\]
 where \(m\) and \(p\) are defined as above. Then we shall say that \(X\) corresponds to
@@ -652,26 +651,32 @@ form, and then that one and only one such expression in normal form
 corresponds to a given transformation.
 
 To obtain such a normal form we introduce the following definitions:
-\td{dotted hrule}
-\begin{align*}
-  W_1 &\longeq W \\
-  W_2 &\longeq C_1 \cdot W_1 \cdot C_2 \cdot C_1 \\
-  W_{k+1} &\longeq C_k \cdot W_k \cdot C_{k+1} \cdot C_k \\
-\end{align*}
+\begin{equation*}
+  \renewcommand{\arraycolsep}{0pt}% Remove separation between array columns
+  \begin{array}{rl}
+    &W_1 \longeq W \\
+    &W_2 \longeq C_1 \cdot W_1 \cdot C_2 \cdot C_1 \\
+    \hdotsfor[6]{2} \\
+    &W_{k+1} \longeq C_k \cdot W_k \cdot C_{k+1} \cdot C_k
+  \end{array}
+\end{equation*}
 it then follows by induction\footnote{This and other proofs by mathematical deduction are such that by repeating the argument a sufficient number of timmes the formula may be established in any particular case with the use of I-VII.} that
 \begin{align*}
   W_k &\longeq D_k \cdot W \cdot C_2 \cdot C_3 \cdot C_4 \cdots C_k \cdot C_1 \cdot C_2 \cdot C_3 \cdots C_{k-1} \\
   &\longeq [k, 1, 2, \cdots k-1] \cdot W \cdot [3, 4, \cdots k+1, 1, 2]
 \end{align*}
-
-whence,\td{dotted hrule, long sim}
-\begin{align*}
-  W_2 &\sim [1, 2, 2] \\
-  W_3 &\sim [1, 2, 3, 3] \\
-  W_k &\sim [1, 2, 3, \cdots k-1, k, k] \\
-\end{align*}
-
+whence,
+\begin{equation*}
+  \renewcommand{\arraycolsep}{0pt}% Remove separation between array columns
+  \begin{array}{rl}
+  &W_2 \sim [1, 2, 2] \\
+  &W_3 \sim [1, 2, 3, 3] \\
+  \hdotsfor[6]{2} \\
+  &W_k \sim [1, 2, 3, \cdots k-1, k, k]
+  \end{array}
+\end{equation*}
 The result we wish to prove now follows from a series of lemmas.
+
 \begin{lemma}
   Every product expression in \(\mathfrak{A}\) can be reduced to the form
   \begin{equation}
