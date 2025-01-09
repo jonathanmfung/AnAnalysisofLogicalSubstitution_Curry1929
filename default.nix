@@ -18,6 +18,7 @@ let
       amsmath
       extsizes
       tocloft
+      fancyhdr
       ;
   };
 in

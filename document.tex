@@ -1,5 +1,6 @@
-\documentclass[9pt]{extarticle}
-\usepackage[paperheight=9.38in, paperwidth=6.33in, textwidth=4.75in]{geometry}
+\documentclass[9pt, twoside]{extarticle}
+% equivalent to textwidth=4.75in (need to explicitly define left/right to center twoside doc)
+\usepackage[paperheight=9.38in, paperwidth=6.33in, left=0.79in, right=0.79in]{geometry}
 
 \usepackage{titlesec}
 \usepackage[symbol, perpage]{footmisc}
@@ -7,17 +8,19 @@
 \usepackage[leqno]{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{fancyhdr}
 \usepackage{todonotes}
 \usepackage{tocloft}
 \newcommand{\td}[2][] {\todo[tickmarkheight=3pt, inline, size=\tiny, #1]{#2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%% TOC  %%%%%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{0} % toc show only parts
+\setlength{\cftbeforetoctitleskip}{0pt}
+
 %% Center TOC title
 \renewcommand{\cfttoctitlefont}{\hfill\normalfont\normalsize\textit}
 \renewcommand{\cftaftertoctitle}{\hfill}
-
-\setcounter{tocdepth}{0} % toc show only parts
 
 %% Part entry formatting
 \setlength{\cftbeforepartskip}{0pt}
@@ -68,25 +71,41 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}%
 
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0em}
+\fancyhead{} % clear all header fields
+\fancyhead[C]{\textsc{Curry}: \textit{An Analysis of Logical Substitution.}}
+\fancyhead[LE, RO]{\thepage}
+\fancyfoot{} % clear all footer fields
+
+% https://tex.stackexchange.com/a/37884
+\makeatletter
+\renewcommand\footnoterule{%
+  \kern-3\p@
+  \hrule\@width5em
+  \kern2.6\p@}
+\makeatother
+
 \begin{center}
 \large\textbf{An Analysis of Logical Substitution.} \\
-\normalsize By H. B. Curry.
+\normalsize By H. B. Curry. \\
+\rule{5em}{0.7pt}
 \end{center}
-\renewcommand{\contentsname}{Contents.\footnote{The three parts of this paper are to a certain extent independent of one another. However, certain definitions needed in Part III are given in the last six paragraphs of Part II.} \hfill}
 
-\tableofcontents
-\td{hrule before toc}
+\renewcommand{\contentsname}{Contents.\footnote{The three parts of this paper are to a certain extent independent of one another. However, certain definitions needed in Part III are given in the last six paragraphs of Part II.} \hfill}
+% \tableofcontents
+
 \td{header (even left, same title)}
 \td{slightly more line height (<5\%)}
 \td{slightly condensed font (<5\%)}
 
-\fakepart{Preliminary Discussion of the Nature of Mathematical Logic.}\td{section title size}
-\td{footnote mark size}
-\td{indent} \indent Mathematical Logic has been defined as an application of the formal
+\fakepart{Preliminary Discussion of the Nature of Mathematical Logic.}
+\td{increase footnote mark size}
+\indent Mathematical Logic has been defined as an application of the formal
 methods of mathematics to the domain of Logic.\footnote{Hilbert, D., and Ackermann, W., Grundziige der theoretischen Logik, 1928, p. 1}\td{proper citations in footnotes} Logic, on the other hand,
 is the analysis and criticism of thought.\footnote{Johnson, W. E., Logic, Part I, Cambridge (1921), p. xiii} In accordance with these defini-
 tions, the essential purpose of mathematical logic is the construction of an
-abstract (or strictly formalized) theory,such that when its fundamental
+abstract (or strictly formalized) theory, such that when its fundamental
 notions are properly interpreted, there ensues an analysis of those universal
 principles in accordance with which valid thinking goes on. The term
 analysis here means that a certain rather complicated body of knowledge is
