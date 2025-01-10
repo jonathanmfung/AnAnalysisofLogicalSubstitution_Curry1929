@@ -76,7 +76,18 @@
 \theoremstyle{breaktheorem}
 \newtheorem*{theorem}{Theorem}
 
+\newtheoremstyle{mylemma}%
+    {\topsep}%Space Above
+    {\topsep}%Space Below
+    {\itshape}%Body Font
+    {\parindent}%Indent Amount
+    {\upshape}%Theorem Head Font
+    {.}%Punctuation after Theorem Head
+    {1em}%Space after Theorem Head
+    {}%Theorem head spec (can be left empty, meaning 'normal')
+\theoremstyle{mylemma}
 \newtheorem{lemma}{Lemma}
+
 \newtheorem{definition}{Definition}
 \newtheorem{corollary}{Corollary}
 % TODO: maybe remove QED symbol \renewcommand\qedsymbol{QED}
@@ -697,7 +708,6 @@ whence,
 \end{equation*}
 The result we wish to prove now follows from a series of lemmas.
 
-\td{Lemma: indented, not bold}
 \begin{lemma}
   \label{lemma:1}
   Every product expression in \(\mathfrak{A}\) can be reduced to the form
