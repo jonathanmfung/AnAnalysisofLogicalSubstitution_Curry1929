@@ -88,8 +88,29 @@
 \theoremstyle{mylemma}
 \newtheorem{lemma}{Lemma}
 
-\newtheorem{definition}{Definition}
-\newtheorem{corollary}{Corollary}
+\newtheoremstyle{mydefinition}%
+    {\topsep}%Space Above
+    {\topsep}%Space Below
+    {\upshape}%Body Font
+    {\parindent}%Indent Amount
+    {\itshape}%Theorem Head Font
+    {:}%Punctuation after Theorem Head
+    {1em}%Space after Theorem Head
+    {}%Theorem head spec (can be left empty, meaning 'normal')
+\theoremstyle{mydefinition}
+\newtheorem*{definition}{Definition}
+
+\newtheoremstyle{mycorollary}%
+    {\topsep}%Space Above
+    {\topsep}%Space Below
+    {\itshape}%Body Font
+    {\parindent}%Indent Amount
+    {\upshape}%Theorem Head Font
+    {.}%Punctuation after Theorem Head
+    {1em}%Space after Theorem Head
+    {}%Theorem head spec (can be left empty, meaning 'normal')
+\theoremstyle{mycorollary}
+\newtheorem*{corollary}{Corollary}
 % TODO: maybe remove QED symbol \renewcommand\qedsymbol{QED}
 % TODO: \newtheoremstyle https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles
 
@@ -871,11 +892,9 @@ For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), t
                  &&&\longeq W_j \cdot W_{j+1} &\text{by \eqref{eq:8} and I.}
 \end{flalign*}
 
-\td{Definition: italics, colon, indent, no number}
 \begin{definition}
   \(W_k^r \longeq W_k \cdot W_k \cdots W_k \quad r \text{ times.}\)
 \end{definition}
-\td{Corollary: indented, no number}
 \begin{corollary}
   Every expression in \(\mathfrak{A}\) can be reduced to the form
   \begin{equation}
@@ -884,6 +903,7 @@ For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), t
   \end{equation}
   where \(\quad k_q > k_{q-1} > \cdots \cdots > k_2 > k_1, \qquad r_1 > 0 \)
 \end{corollary}
+\td{indent proof header}
 \begin{proof}
   Simply collect the \(W\)'s with equal indices in \eqref{eq:product_reduction}.
 \end{proof}
@@ -894,6 +914,7 @@ For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), t
   transformation, then they both have the same constants \(q, k_1, k_2, \cdots k_q,
   r_1 r_2, \cdots r_q.\)
 \end{lemma}
+\td{indent proof header}
 \begin{proof}
   Let \[\Delta_q \longeq W_{k_q}^{r_q} \cdot W_{k_{q-1}}^{r_{q-1}} \cdots W_{k_2}^{r_2} \cdot W_{k_1}^{r_1}\]
 
