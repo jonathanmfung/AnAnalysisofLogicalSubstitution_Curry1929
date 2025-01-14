@@ -880,18 +880,15 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
                      &&&\longeq W_j \cdot C_{j+h+1} & \text{q.e.d. \qquad by def.}
 \end{flalign*}
 
-\td{newline after sixth}
 \noindent \textit{Sixth,}
-For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), then
-\td{can't fit q.e.d on last line}
-\td{goes past right margin}
+\newline \indent For \(j\longeq 1\), this is true by \eqref{eq:6}. Suppose it true for \(j-1\), then
 \begin{flalign*}
   && W_j \cdot W_j &\longeq C_{j-1} \cdot W_{j-1} \cdot C_j \cdot W_{j-1} \cdot C_j \cdot C_{j-1} & \text{by def. and I.} \\
                  &&&\longeq C_{j-1} \cdot W_{j-1} \cdot W_{j-1} \cdot C_{j+1} \cdot C_j \cdot C_{j-1} & \text{by \eqref{eq:10}} \\
                  &&&\longeq C_{j-1} \cdot W_{j-1} \cdot W_j \cdot C_{j+1} \cdot C_j \cdot C_{j-1} & \text{by hyp.} \\
-                 &&&\longeq C_{j-1} \cdot W_{j-1} \cdot C_j \cdot C_{j-1} \cdot C_{j-1} \cdot C_j \cdot W_j \cdot C_{j+1} \cdot C_j \cdot C_{j-1} & \text{by I.} \\
+                 &&&\longeq C_{j-1} \cdot W_{j-1} \cdot C_j \cdot C_{j-1} \cdot C_{j-1} \cdot C_j & \mkern-50mu\cdot\: W_j \cdot C_{j+1} \cdot C_j \cdot C_{j-1} \quad \text{by I.} \\
                  &&&\longeq W_j \cdot C_{j-1} \cdot W_{j+1} \cdot C_{j-1} & \text{by def.} \\
-                 &&&\longeq W_j \cdot W_{j+1} &\text{by \eqref{eq:8} and I.}
+                 &&&\longeq W_j \cdot W_{j+1} &\text{q.e.d. \qquad by \eqref{eq:8} and I.}
 \end{flalign*}
 
 \noindent \textit{Seventh,}
