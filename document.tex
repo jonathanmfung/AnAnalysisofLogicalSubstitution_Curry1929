@@ -112,8 +112,16 @@
     {}%Theorem head spec (can be left empty, meaning 'normal')
 \theoremstyle{mycorollary}
 \newtheorem*{corollary}{Corollary}
+
+% https://tex.stackexchange.com/a/85081
+\newenvironment{proofnewlineindent}[1][\proofname]{%
+  \begin{proof}[\indent#1]$ $\par\nobreak\ignorespaces
+}{%
+  \end{proof}
+}
+
+
 % TODO: maybe remove QED symbol \renewcommand\qedsymbol{QED}
-% TODO: \newtheoremstyle https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles
 
 %%%%%%%%%%%%%  MISC  %%%%%%%%%%%%%%%%%%%
 \title{An Analysis of Logical Substitution}% Only for metadata
@@ -740,7 +748,7 @@ The result we wish to prove now follows from a series of lemmas.
   \end{equation}
   where \(B\) involves the \(C\)'s only.
 \end{lemma}
-\begin{proof}
+\begin{proofnewlineindent}
 First we show that any expression of the form \(A \cdot W\) can be reduced to the
 form \(W_k \cdot B\), where \(A\) and \(B\) involve the \(C\)'s only. If \(A\) is the identical ele-
 ment we are through. If not, consider the \(C\) nearest the \(W\); if this is any
@@ -786,7 +794,7 @@ where \(A_0, A_1, A_2 \cdots A_q\) involve the \(C\)'s only. By what we have jus
   \end{array}
 \end{equation*}
 Taking all these into consideration, we can reduce the form \eqref{eq:4} to the form \eqref{eq:product_reduction}.
-\end{proof}
+\end{proofnewlineindent}
 
 \begin{lemma}
   \label{lemma:2}
@@ -794,7 +802,7 @@ Taking all these into consideration, we can reduce the form \eqref{eq:4} to the 
   \[k_q \geqq k_{q-1} \geqq \cdots \cdots \geqq k_2 \geqq k_1\]
 \end{lemma}
 
-\begin{proof}
+\begin{proof}[\indent Proof]
   It is sufficient to prove that
   \begin{equation}
     \label{eq:5}
@@ -913,8 +921,7 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
   \end{equation}
   where \(\quad k_q > k_{q-1} > \cdots \cdots > k_2 > k_1, \qquad r_1 > 0 \)
 \end{corollary}
-\td{indent proof header}
-\begin{proof}
+\begin{proof}[\indent Proof]
   Simply collect the \(W\)'s with equal indices in \eqref{eq:product_reduction}.
 \end{proof}
 
@@ -924,10 +931,9 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
   transformation, then they both have the same constants \(q, k_1, k_2, \cdots k_q,
   r_1 r_2, \cdots r_q.\)
 \end{lemma}
-\td{indent proof header}
-\begin{proof}
-  Let \[\Delta_q \longeq W_{k_q}^{r_q} \cdot W_{k_{q-1}}^{r_{q-1}} \cdots W_{k_2}^{r_2} \cdot W_{k_1}^{r_1}\]
-
+\begin{proofnewlineindent}
+  \indent Let \[\Delta_q \longeq W_{k_q}^{r_q} \cdot W_{k_{q-1}}^{r_{q-1}} \cdots W_{k_2}^{r_2} \cdot W_{k_1}^{r_1}\]
+  \setlength{\parindent}{0pt}
   also let \[\Delta_q \sim \alpha \longeq [a_1, a_2, a_3 \cdots \cdots]\]
 
   Then for the explicit determination of the \(a_x\) we have
@@ -962,15 +968,15 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
   the sequence \([a_{b_1}, a_{b_2}, \cdots]\) is merely a rearrangement of the sequence
   \([a_1, a_2 \cdots]\). Hence the second of the above properties applies just as much
   to \(\alpha \cdot \beta\) as to \(\alpha\). But then the constants \(q, k_1 \cdots k_q, r_1 \cdots r_q,\) are uniquely
-  determined by \(\alpha \cdot \beta\), \mbox{q. e. d.}\td{do I need hard code q.e.d?}
-\end{proof}
+  determined by \(\alpha \cdot \beta\).
+\end{proofnewlineindent}
 
 \begin{lemma}
   \label{lemma:4}
   To each transformation of finite order there corresponds at
   least one expression of form \eqref{eq:11}.
 \end{lemma}
-\begin{proof}
+\begin{proofnewlineindent}
   Let the given transformation be \(\gamma \longeq [c_1, c_2 \cdots]\).
 
   Let \(\Delta_q\) be determined from \(\gamma\) as indicated in the preceding lemma, and
@@ -986,16 +992,15 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
   cases \(a_{b_i} \longeq c_i\).
 
   To the \(\beta\) so constructed there corresponds a unique \(B\) in \(\mathfrak{A}\), by Moore's
-  result. For this \(B\), \(\Delta_q \cdot B \sim \gamma\), q.e.d.\td{do I need hard code q.e.d?}
-\end{proof}
+  result. For this \(B\), \(\Delta_q \cdot B \sim \gamma\).
+\end{proofnewlineindent}
 
 \begin{lemma}
   \label{lemma:5}
   The operator in \(\mathfrak{A}\) corresponding to a given transformation
   is unique.
 \end{lemma}
-\td{proof newline}
-\begin{proof}
+\begin{proofnewlineindent}
   Let \(A_1\) and \(A_2\) be two operators in \(\mathfrak{A}\) which correspond to a given trans-
   formation \(\gamma\). By \Cref{lemma:2,lemma:3} there is a uniquely determined \(\Delta_q\)
   such that
@@ -1086,7 +1091,7 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
   \end{flalign*}
   These three cases together establish \eqref{eq:15}, which completes the proof of both
   the lemma and the theorem.
-\end{proof}% lemma
+\end{proofnewlineindent}% lemma
 \end{proof}% theorem
 We have now achieved one of our objectives---viz. the elimination of
 Rule 4 so far as the selected subclass is concerned. For Rule 4 merely
