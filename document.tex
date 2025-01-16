@@ -765,14 +765,12 @@ which is nearest \(D_j\). Four cases can rise: \begin{enumerate*}[label=\arabic*
   same form where the new \(A'\) involves one less \(C\) than the old.
 
   Continuing in this way we must eventually reach a stage where \(A' \longeq I\). Then we have
-
-  \td{maybe make flalign for ``by I/def''}
-  \begin{alignat*}{2}
-    A \cdot W &\longeq D_k \cdot W \cdot B' \\
+  \begin{flalign*}
+    A \cdot W &\longeq D_k \cdot W \cdot B' \nonumber\\
               &\longeq (D_k \cdot W \cdot C_2 \cdot C_3 \cdots C_k \cdot C_1 \cdot C_2 \cdots C_{k-1}) \\
-              &\qquad \qquad \qquad \cdot C_{k-1} \cdots C_2 \cdot C_1 \cdot C_k \cdots C_3 \cdot C_2 \cdot B' \text{ by I}\\
-              &\longeq W_k \cdot C_{k-1} \cdots C_2 \cdot C_1 \cdot C_k \cdots C_3 \cdot C_2 \cdot B' \text{ by def.}
-  \end{alignat*}
+              &\qquad \qquad \qquad \cdot C_{k-1} \cdots C_2 \cdot C_1 \cdot C_k \cdots C_3 \cdot C_2 \cdot B' &\text{ by I}\\
+              &\longeq W_k \cdot C_{k-1} \cdots C_2 \cdot C_1 \cdot C_k \cdots C_3 \cdot C_2 \cdot B' &\text{ by def.}
+  \end{flalign*}
   which is of the form \(W_k \cdot B\).
 
   The proof of the lemma now follows. Let the given expression be of the form
