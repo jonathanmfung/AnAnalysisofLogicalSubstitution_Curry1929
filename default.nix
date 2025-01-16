@@ -35,13 +35,11 @@ in
       tex
     ];
 
-    TZDIR = "${pkgs.tzdata}/share/zoneinfo";
     FONTCONFIG_FILE = pkgs.makeFontsConf { fontDirectories = [ pkgs.source-sans-pro ]; };
 
     buildPhase = ''
       runHook preBuild
       export PATH="${pkgs.lib.makeBinPath nativeBuildInputs}"
-      export TZ="America/Los_Angeles"
       mkdir -p .cache/texmf-var
       env TEXMFHOME=.cache TEXMFVAR=.cache/texmf-var \
         latexmk -interaction=nonstopmode -pdf -lualatex \
