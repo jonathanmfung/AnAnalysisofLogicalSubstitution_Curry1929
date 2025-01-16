@@ -491,7 +491,7 @@ None.
 \section{Rules.}
 
 \begin{enumerate}[label=\arabic*., start=0]
-\item If \(x\) and \(y\) are entities, then \((xy)\) shall be an entity.
+\item \label{rule:schonfinkel0}If \(x\) and \(y\) are entities, then \((xy)\) shall be an entity.
 \item \((\longeq)\) shall have the properties of identity. These properties may be
 specified by a few simple rules; but in this treatment we shall not go into
 that detail. We shall treat \((\longeq)\) as if it were precisely the intuitive relation
@@ -500,7 +500,7 @@ of equality.
   \[Kxy \longeq x\]
 \item If \(x,y,z\) are entities, then
   \[Sxyz \longeq xz(yz)\]
-\item If \(X\) and \(Y\) are combinations of \(S\) and \(K\), and if there exists an
+\item \label{rule:schonfinkel4}If \(X\) and \(Y\) are combinations of \(S\) and \(K\), and if there exists an
   integer \(n\) such that by application of the preceding rules we can formally
   reduce the expressions \(Xx_1 x_2 \cdots x_n\) and \(Yx_1 x_2 \cdots x_n\) to combinations of
   \(x_1 x_2 \cdots x_n\) which have the same structure, then \(X \longeq Y\).
@@ -537,17 +537,17 @@ The theory of transformation of functions is included in the above as a
 special case; viz., when there is a single function \(f\) and \(F\) is a transform.
 
 The theory is, however, open to objection from our point of view because
-of the complexity of Rule 4\td{link}. This rule is not mentioned by Schönfinkel; but
+of the complexity of \hyperref[rule:schonfinkel4]{Rule 4}. This rule is not mentioned by Schönfinkel; but
 it is necessary in order that the \(Y\) mentioned be unique. In fact, the combina-
 tions \(SK\) and \(K(SKK)\) determine the same \(X\); yet it is evidently not possi-
 ble to establish their identity by means of the first four rules.
 
 This situation suggests a problem; viz., to find a set of postulates which,
-when adjoined to the Schönfinkel frame, enable us to dispense with Rule 4.
+when adjoined to the Schönfinkel frame, enable us to dispense with \hyperref[rule:schonfinkel4]{Rule 4}.
 In what follows we shall obtain the solution of a special case under this prob-
 lem; specifically, we shall find a set of postulates such that, within a certain
 subclass of combinations of \(S\) and \(K\), all the \(Y\)'s which correspond
-to the same \(X\) may be proved equal by means of these postulates and Rules 0-3. The sub-
+to the same \(X\) may be proved equal by means of these postulates and \hyperref[rule:schonfinkel0]{Rules 0-3}. The sub-
 class is one which has particular reference to logical substitution.
 
 To begin with, we make the following definitions (the first three were made by Schönfinkel):\footnote{We use \(B\) and \(C\) respectively in place of Schönfinkel's \(Z\) and \(T\). Nothing corresponding to \(W\) or \(C_2, C_3, \cdots\) is defined by him.}
