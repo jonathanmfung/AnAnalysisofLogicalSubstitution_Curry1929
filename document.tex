@@ -63,7 +63,9 @@
 % description lists
 \newcommand\litem[1]{\item{\textit{#1}}}
 
-\newcommand\longeq{=\joinrel=}
+% https://tex.stackexchange.com/a/669760
+\def\varequals#1{\mathrel{\leaders\hbox to3pt{$=$\hss}\hskip#1=}}
+\newcommand\longeq{\varequals{0.4em}}
 
 \newtheoremstyle{breaktheorem}%
     {\topsep}%Space Above
