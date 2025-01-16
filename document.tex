@@ -147,6 +147,11 @@
   \kern2.6\p@}
 \makeatother
 
+% space after footnote marker in bottom margin https://tex.stackexchange.com/a/54691
+\let\oldfootnote\footnote
+\renewcommand\footnote[1]{%
+\oldfootnote{\hspace{0.3em}#1}}
+
 \begin{center}
 \large\textbf{An Analysis of Logical Substitution.} \\
 \normalsize By H. B. Curry. \\
@@ -176,7 +181,6 @@
 
 \fakepart{Preliminary Discussion of the Nature of Mathematical Logic.}
 \label{part:I}
-\td{space after footnotemark in bottom margin}
 \indent Mathematical Logic has been defined as an application of the formal
 methods of mathematics to the domain of Logic.\footnote{Hilbert, D., and Ackermann, W., \textit{Grundzüge der theoretischen Logik}, 1928, p. 1.} Logic, on the other hand,
 is the analysis and criticism of thought.\footnote{Johnson, W. E., \textit{Logic}, Part I, Cambridge (1921), p. xiii.} In accordance with these defini-
