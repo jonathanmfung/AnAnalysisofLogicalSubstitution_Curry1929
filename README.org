@@ -1,4 +1,4 @@
-file:AnAnalysisofLogicalSubstitution_Curry1929.tex
+[[AnAnalysisofLogicalSubstitution_Curry1929.pdf]]
 
 A digital recreation of Haskell Brooks Curry's 1929 paper /An Analysis of Logical Substitution/.
 
@@ -8,15 +8,15 @@ cp result/AnAnalysisofLogicalSubstitution_Curry1929.pdf AnAnalysisofLogicalSubst
 
 * Modernizations
 - PDF hyperlinks for equations, lemmas, etc.
-- PDF index for the 3 parts.
+- PDF index for the 3 parts
 - Page numbers in TOC
-* Formatting changes from the original
-- Font size/spacing + linebreaks are not 1:1
+* Formatting changes from the original (non-exhaustive)
+- Font type, font size, font spacing, and linebreak height are not 1:1
+  - This document is slightly more spacious, spanning 1 extra page.
 - Alpha symbol is italicized, not upright & bold
 - All proof headers are indented
 - All proof headers trail with a newline
 - Some dotted horizontal lines have more/less dots
 - Some indentation in multiline equations are made consistent
 - QED symbol is empty box, not literal "q.e.d."
-- No space after footnote mark
 - Centered page number on first page
