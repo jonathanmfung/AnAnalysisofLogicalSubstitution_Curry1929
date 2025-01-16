@@ -21,3 +21,4 @@ cp -f result/AnAnalysisofLogicalSubstitution_Curry1929.pdf AnAnalysisofLogicalSu
 - Some indentation in multiline equations are made consistent
 - QED symbol is empty box, not literal "q.e.d."
 - Centered page number on first page
+- Last footnote is marked as missing
