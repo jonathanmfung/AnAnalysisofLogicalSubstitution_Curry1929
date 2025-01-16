@@ -67,6 +67,12 @@
 \def\varequals#1{\mathrel{\leaders\hbox to3pt{$=$\hss}\hskip#1=}}
 \newcommand\longeq{\varequals{0.4em}}
 
+% https://tex.stackexchange.com/a/19385
+\newcommand{\widesim}[2][1.5]{
+  \mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand\longsim{\widesim{}}
+
 \newtheoremstyle{breaktheorem}%
     {\topsep}%Space Above
     {\topsep}%Space Below
@@ -658,14 +664,14 @@ ism. To this we now turn.
 
 \item Let a correspondence be set up between the system \(\mathfrak{A}\) and the system of transformations of finite order as follows:
   \begin{align}
-    W &\sim [1, 1] \nonumber \\
-    C_1 &\sim [2, 1] \label{eq:finite_transformations} \\
-    C_2 &\sim [1, 3, 2] \nonumber \\
-    C_i &\sim [1, 2, 3, \cdots i - 1, i + 1, i] \nonumber
+    W &\longsim [1, 1] \nonumber \\
+    C_1 &\longsim [2, 1] \label{eq:finite_transformations} \\
+    C_2 &\longsim [1, 3, 2] \nonumber \\
+    C_i &\longsim [1, 2, 3, \cdots i - 1, i + 1, i] \nonumber
   \end{align}
-  and if\td{long sim (https://tex.stackexchange.com/a/19385)} \(A \sim \alpha\), \(B \sim \beta\)\footnote{Throughout this discussion we use Roman capitals to denote operators of \(\mathfrak{A}\), Greek l. c. letters to denote transformations.} then \(A \cdot B \sim \alpha \cdot \beta\) is defined by \eqref{eq:multiplication_transformations}.
+  and if \(A \longsim \alpha\), \(B \longsim \beta\)\footnote{Throughout this discussion we use Roman capitals to denote operators of \(\mathfrak{A}\), Greek l. c. letters to denote transformations.} then \(A \cdot B \longsim \alpha \cdot \beta\) is defined by \eqref{eq:multiplication_transformations}.
   \end{enumerate}
-  Then, the correspondence so defined is a one-to-one isomorphism.
+  \noindent Then, the correspondence so defined is a one-to-one isomorphism.
 \end{theorem}
 \begin{proofnewlineindent}
   There are four things to prove:
@@ -685,7 +691,7 @@ ism. To this we now turn.
   \setcounter{footnote}{1} % NOTE: for some reason this page of 3 footnotes runs into "Counter Too Large"
   % https://tex.stackexchange.com/a/342621
   for transformations.\footnote{The only question here is about VII. It follows, however, by definition, that
-    \[D_i \sim [i, 1, 2, 3, \cdots, i-1]\]
+    \[D_i \longsim [i, 1, 2, 3, \cdots, i-1]\]
     and therefore the proposition analogous to VII is the identity
     \begin{align*}
       [1, 1] \cdot [j, 1, &2, \cdots, j-1] \cdot [1,1] \\
@@ -733,10 +739,10 @@ whence,
 \begin{equation*}
   \renewcommand{\arraycolsep}{0pt}% Remove separation between array columns
   \begin{array}{rl}
-  &W_2 \sim [1, 2, 2] \\
-  &W_3 \sim [1, 2, 3, 3] \\
+  &W_2 \longsim [1, 2, 2] \\
+  &W_3 \longsim [1, 2, 3, 3] \\
   \hdotsfor[6]{2} \\
-  &W_k \sim [1, 2, 3, \cdots k-1, k, k]
+  &W_k \longsim [1, 2, 3, \cdots k-1, k, k]
   \end{array}
 \end{equation*}
 The result we wish to prove now follows from a series of lemmas.
@@ -934,7 +940,7 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
 \begin{proofnewlineindent}
   \indent Let \[\Delta_q \longeq W_{k_q}^{r_q} \cdot W_{k_{q-1}}^{r_{q-1}} \cdots W_{k_2}^{r_2} \cdot W_{k_1}^{r_1}\]
   \setlength{\parindent}{0pt}
-  also let \[\Delta_q \sim \alpha \longeq [a_1, a_2, a_3 \cdots \cdots]\]
+  also let \[\Delta_q \longsim \alpha \longeq [a_1, a_2, a_3 \cdots \cdots]\]
 
   Then for the explicit determination of the \(a_x\) we have
   \begin{alignat*}{5}
@@ -979,7 +985,7 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
   Let the given transformation be \(\gamma \longeq [c_1, c_2 \cdots]\).
 
   Let \(\Delta_q\) be determined from \(\gamma\) as indicated in the preceding lemma, and
-  suppose \(\Delta_q \sim [a_1, a_2 \cdots] \longeq \alpha\).
+  suppose \(\Delta_q \longsim [a_1, a_2 \cdots] \longeq \alpha\).
 
   Then we can construct a permutation \(\beta \longeq [b_1, b_2 \cdots]\) such that
   \(\alpha \cdot \beta \longeq \gamma\), as follows. If \(c_i\) is distinct from any of the \(k\)'s there is one and
@@ -991,7 +997,7 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
   cases \(a_{b_i} \longeq c_i\).
 
   To the \(\beta\) so constructed there corresponds a unique \(B\) in \(\mathfrak{A}\), by Moore's
-  result. For this \(B\), \(\Delta_q \cdot B \sim \gamma\).
+  result. For this \(B\), \(\Delta_q \cdot B \longsim \gamma\).
 \end{proofnewlineindent}
 
 \begin{lemma}
@@ -1005,7 +1011,7 @@ For \(j\longeq 1\), this is true by IV. Suppose it true for \(j-1\), then
   such that
   \[A_1 \longeq \Delta_q \cdot B_1, \qquad A_2 \longeq \Delta_q \cdot B_2\]
 
-  If \(B_1 \sim \beta_1, B_2 \sim \beta_2, \beta_1\) and \(\beta_2\) must be subject to all the restrictions
+  If \(B_1 \longsim \beta_1, B_2 \longsim \beta_2, \beta_1\) and \(\beta_2\) must be subject to all the restrictions
   to which \(\beta\) was subject in \Cref{lemma:4}, except that it is not necessary to suppose
   \(i_1 < i_2 < \cdots < i_p\). The only way in which \(\beta_1\) and \(\beta_2\) can differ is in the
   arrangement of the \(b_{i_1}, b_{i_2} \cdots\) corresponding to each of the \(k_j\). Hence
