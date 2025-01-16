@@ -3,6 +3,7 @@
 A digital recreation of Haskell Brooks Curry's 1929 paper /An Analysis of Logical Substitution/.
 
 #+begin_src bash :results none
+nix-build
 cp -f result/AnAnalysisofLogicalSubstitution_Curry1929.pdf AnAnalysisofLogicalSubstitution_Curry1929.pdf
 #+end_src
 
