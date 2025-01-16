@@ -27,7 +27,7 @@ let
 in
 {
   document = stdenv.mkDerivation rec {
-    name = "cover_letter";
+    name = "AnAnalysisofLogicalSubstitution_Curry1929";
     src = ./.;
     nativeBuildInputs = [
       pkgs.coreutils
@@ -43,13 +43,13 @@ in
       mkdir -p .cache/texmf-var
       env TEXMFHOME=.cache TEXMFVAR=.cache/texmf-var \
         latexmk -interaction=nonstopmode -pdf -lualatex \
-        document.tex
+        AnAnalysisofLogicalSubstitution_Curry1929.tex
       runHook postBuild
     '';
     installPhase = ''
       runHook preInstall
       mkdir -p $out
-      cp document.pdf $out/
+      cp AnAnalysisofLogicalSubstitution_Curry1929.pdf $out/
       runHook postInstall
     '';
   };
