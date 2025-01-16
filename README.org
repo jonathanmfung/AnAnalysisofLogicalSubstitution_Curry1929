@@ -2,6 +2,10 @@ file:AnAnalysisofLogicalSubstitution_Curry1929.tex
 
 A digital recreation of Haskell Brooks Curry's 1929 paper /An Analysis of Logical Substitution/.
 
+#+begin_src bash :results none
+cp result/AnAnalysisofLogicalSubstitution_Curry1929.pdf AnAnalysisofLogicalSubstitution_Curry1929.pdf
+#+end_src
+
 * Modernizations
 - PDF hyperlinks for equations, lemmas, etc.
 - PDF index for the 3 parts.
