@@ -1,6 +1,6 @@
 [[AnAnalysisofLogicalSubstitution_Curry1929.pdf]]
 
-A digital recreation of Haskell Brooks Curry's 1929 paper /An Analysis of Logical Substitution/.
+A digital recreation of Haskell Brooks Curry's 1929 paper /[[https://www.jstor.org/stable/2370728?origin=JSTOR-pdf&seq=3][An Analysis of Logical Substitution]]/.
 
 #+begin_src bash :results none
 nix-build
